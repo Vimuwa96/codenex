@@ -1,0 +1,472 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend", sans-serif;
+}
+body {
+  background-image: linear-gradient(
+    to right,
+    #0e0d0d 0%,
+    black 100%
+  ) !important;
+  padding-top: 120px;
+}
+:root {
+  --blue: #2563eb;
+  --purple: #7c3aed;
+}
+
+/* =========================
+   🌈 THEMED SCROLLBAR
+========================= */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* track */
+::-webkit-scrollbar-track {
+  background: #0f172a; /* dark background (change if needed) */
+}
+
+/* thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #2563eb,
+    #7c3aed
+  ); /* your theme gradient */
+  border-radius: 10px;
+  border: 2px solid #0f172a;
+}
+
+/* hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3b82f6, #a855f7);
+}
+
+.nav-item a {
+  color: rgb(255, 255, 255) !important;
+  transition: 0.5s ease-in-out;
+  font-weight: 500;
+}
+
+.get-in-touch-btn a {
+  text-decoration: none;
+  color: #fdfdfd;
+}
+
+.nav-item a:hover {
+  color: var(--purple) !important;
+}
+
+.get-in-touch-btn {
+  padding: 11px 18px;
+  border-radius: 19px;
+  background-color: #0e0d0d;
+}
+
+#main-nav {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 999;
+}
+
+.main-header-wrap h1 {
+  font-size: clamp(2rem, 5vw, 8rem);
+  font-weight: 700;
+}
+
+/* =========================
+   🌫 GLASS OVERLAY
+========================= */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 1040;
+}
+
+/* show state */
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#header-span {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.discuess-project-btn a {
+  background-color: rgb(255, 255, 255);
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 33px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.tech-icon i {
+  font-size: clamp(4rem, 5vw, 8rem);
+  background: linear-gradient(90deg, #505050, #474747);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transition: 0.5s ease-in-out;
+}
+
+.tech-icon i:hover {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+.navbar-toggler span {
+  color: white;
+  font-size: 45px;
+}
+
+/* Who We are */
+
+.who-we-are {
+  background-color: rgb(255, 255, 255);
+}
+
+.about-us-btn a {
+  text-decoration: none;
+  background-color: #0e0d0d;
+  padding: 15px 23px;
+  color: white;
+  border-radius: 20px;
+}
+
+.who-we-are {
+  border-radius: 20px;
+}
+
+.code-nex-logo {
+  perspective: 1000px;
+}
+
+.code-nex-logo img {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease,
+    box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.code-nex-logo img:hover {
+  transform: rotateY(18deg) rotateX(10deg) scale(1.08);
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+}
+
+.runing-text-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.runing-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 700;
+  color: #e4e4e4;
+  font-size: clamp(6rem, 4vw, 4rem); /* responsive font */
+  will-change: transform; /* important for smooth GSAP */
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .runing-text {
+    font-size: 4rem;
+  }
+}
+
+/* BASE FIX */
+.our-services-section-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* CARD LAYOUT */
+.service-card-wrapper {
+  border-top: 1px solid rgb(250, 248, 248);
+  transition: all 0.3s ease;
+  align-items: start;
+  padding: 8px;
+}
+
+/* ICON + TEXT DEFAULT */
+.service-icon span {
+  font-size: clamp(4rem, 3vw, 3rem);
+  color: var(--blue);
+}
+
+.service-text h1 {
+  font-size: clamp(5rem, 2vw, 1.6rem);
+  margin: 0;
+}
+
+.service-text h1 a {
+  color: grey;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.service-card-wrapper:hover {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+
+.service-card-wrapper:hover .service-text h1 a {
+  color: white;
+}
+
+.service-card-wrapper:hover .service-icon span {
+  color: white;
+}
+
+/* =========================
+   📱 MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .service-card-wrapper {
+    flex-direction: column;
+    text-align: start;
+    justify-content: start; /* 🔥 vertical center */
+    align-items: start; /* 🔥 horizontal center */
+    gap: 10px !important;
+    padding: 20px 10px;
+  }
+
+  .service-icon {
+    padding: 0 !important;
+  }
+
+  .service-icon span {
+    display: none;
+  }
+
+  .service-text h1 {
+    font-size: 2rem;
+    text-align: start; /* 🔥 center text itself */
+    margin: 0;
+    padding: 0;
+  }
+
+  .service-text h1 a {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .our-services-text {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
+.our-services-text {
+  font-size: 3rem;
+  color: white;
+}
+
+/* =========================
+   🌫 OVERLAY (TOP LAYER)
+========================= */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 2000; /* 🔥 highest layer */
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   🌫 OVERLAY
+========================= */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   📱 MOBILE NAV (SEPARATE)
+========================= */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  transition: 0.5s ease;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+/* HEADER */
+.mobile-nav-header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* LINKS */
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-nav ul li {
+  margin: 20px 0;
+}
+
+.mobile-nav ul li a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #050505;
+  transition: 0.3s;
+}
+
+.mobile-nav ul li a:hover {
+  color: #2563eb;
+}
+
+/* BUTTON */
+.mobile-btn {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.mobile-btn a {
+  padding: 12px 20px;
+  background: #2563eb;
+  color: rgb(8, 8, 8);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/*  */
+
+.development-card {
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 20px;
+}
+
+.web-development-areas {
+  background-color: rgb(2, 2, 2);
+}
+
+.development-icon i {
+  font-size: 55px;
+  color: white;
+}
+
+.development-header h6 {
+  color: white;
+}
+
+.development-card:hover .development-icon i {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  background-color: #ced0d4 !important;
+}
+
+.development-card:hover {
+  background-color: #0f0f0f !important;
+}
+
+.development-card a {
+  text-decoration: none;
+}
+
+.intro-text h1 {
+  font-size: 6rem;
+}
+
+.intro-text h1 {
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 800;
+
+  color: transparent; /* remove fill */
+
+  -webkit-text-stroke: 2px #2563eb; /* outline color */
+
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
